@@ -9,7 +9,6 @@ export class UnauthorizedComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }

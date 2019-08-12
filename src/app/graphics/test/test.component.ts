@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 
 import * as d3 from 'd3';
 
+import {AngularFireStorage} from '@angular/fire/storage';
+import {finalize} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import {AuthenticationService} from '../../authentication/authentication.service';
+
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
@@ -9,11 +14,31 @@ import * as d3 from 'd3';
 })
 export class TestComponent implements OnInit {
 
-  constructor() { console.log('TestComponet'); }
+  uploadPercent: Observable<number>;
+  downloadURL: Observable<string>;
+  uid: string;
 
-  ngOnInit() { this.scriptAugusto(); }
+  constructor(
+    private angularFireStorage: AngularFireStorage,
+    private authenticationService: AuthenticationService
+  ) {
+    console.log('TestComponet');
+    this.authenticationService.user.subscribe(res => this.uid = res.uid);
+  }
 
-  scriptAugusto() {
+  /*uploadFile(event) {
+    const file = event.target.files[0];
+    console.log(file);
+    const filePath = `/${this.uid}/${file.name}`;
+    const fileRef = this.angularFireStorage.ref(filePath);
+    const task = this.angularFireStorage.upload(filePath, file);
+    this.uploadPercent = task.percentageChanges();
+    task.snapshotChanges()
+      .pipe( finalize(() => this.downloadURL = fileRef.getDownloadURL() ) )
+      .subscribe();
+  }*/
+
+  /*jsAugusto() {
     const height = 500;
     const width = 500;
     const gap = 10;
@@ -110,6 +135,18 @@ export class TestComponent implements OnInit {
           .attr('fill', 'slateblue')
           .attr('r', 5);
       });
+  }*/
+
+  uploadFile(event) {
+    const file = event.target.files[0];
+    // console.log(event.target.);
+  }
+
+  ngOnInit() {
+
+   const x  = d3.csv('iris.csv').then(res => res);
+
+
   }
 
 }

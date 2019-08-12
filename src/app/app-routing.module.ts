@@ -35,11 +35,6 @@ const APP_ROUTES: Routes = [
     canActivate: [ AuthGuard],
     data: {title: 'GRAPHICS'}
   },
-  /*{ path: 'schedules',
-    loadChildren: './schedules/schedules.module#SchedulesModule',
-    canActivate: [ AuthGuard],
-    data: {title: 'SCHEDULES'}
-  },*/
   { path: '**',
     component: PageNotFoundComponent
   }
