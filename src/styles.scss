@@ -1,6 +1,9 @@
 @import "./_variables";
 
-*{ font-family: "Helvetica Neue", Arial, sans-serif !important; }
+@import '~angular-calendar/scss/angular-calendar.scss';
+
+* {
+  font-family: Arial, sans-serif }
 
 .preloader-container {
   position: absolute;
@@ -104,14 +107,10 @@ mz-radio-button-container p label{
 .small-text{
   font-size: smaller !important;
 }
+
 .large-text {
   font-size: large !important;
 }
-
-/*.btnDisable {
-  border: 1px solid grey !important;
-}*/
-
 
 .text-bold {
   font-weight: bold !important;
@@ -129,12 +128,11 @@ thead {
   margin-bottom: 1px !important;
 }
 
-@import '~angular-calendar/scss/angular-calendar.scss';
-
 .dark-theme {
-  $bg-dark-primary: #1f262d;
-  $bg-dark-secondary: #37474f;
-  $bg-active: #2c343a;
+  $bg-dark-primary: #121212;
+  $bg-dark-secondary: #272727;
+  $bg-dark-ternary: #373737;
+  $bg-active: #37474f;
   $text-color: #eceff1;
   $border-color: #455a64;
 
@@ -146,7 +144,7 @@ thead {
         bg-active: $bg-active,
         border-color: $border-color,
         gray: $bg-dark-secondary,
-        today-bg: $bg-dark-secondary,
+        today-bg: $bg-active,
         event-color-primary: $bg-dark-secondary
       )
   );
@@ -184,6 +182,29 @@ thead {
   .nav-tabs .nav-link:focus {
     border-color: $border-color;
   }
+
+  nav {
+    background: $bg-dark-secondary !important;
+  }
+
+  #sidenav {
+    background: $bg-dark-secondary !important;
+    color: $text-color;
+  }
+
+  #sidenav a {
+    color: $text-color;
+    font-weight: normal;
+  }
+
+  #sidenav a i {
+    color: grey;
+  }
+
+  #sidenav .divider {
+    background: $bg-dark-ternary !important;
+  }
+
 }
 
 .cal-month-view .cal-open-day-events {
@@ -247,7 +268,6 @@ mwl-calendar-week-view-hour-segment {
 .grecaptcha-badge {
   display: none !important;
 }
-
 
 ::-webkit-scrollbar {
   width: 8px !important;
