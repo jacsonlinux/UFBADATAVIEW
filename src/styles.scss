@@ -2,8 +2,9 @@
 
 @import '~angular-calendar/scss/angular-calendar.scss';
 
-* {
-  font-family: Arial, sans-serif }
+/** {
+  font-family: Arial, sans-serif
+}*/
 
 .preloader-container {
   position: absolute;
@@ -23,83 +24,6 @@
   flex-direction: column;
 }
 
-.indicator {
-  background-color: orange !important;
-  height: 3px !important;
-}
-
-.dropdown-content li>a, .dropdown-content li>span {
-  color: #a0a2a3 !important;
-  background-color: #37474f !important;
-}
-
-.dropdown-content {
-  background-color: transparent !important;
-  border-radius: 5px !important;
-}
-
-.switch label input[type=checkbox]:checked+.lever {
-  background-color: #ffcc80 !important;
-}
-.switch label input[type=checkbox]:checked+.lever:after {
-  background-color: orange  !important;
-}
-
-.switch label {
-  font-size: medium !important;
-}
-
-.collection {
-  border: none !important;
-}
-.collection .collection-item.avatar .secondary-content {
-  top: 10px !important;
-  right: 10px !important;
-}
-.collection .collection-item.avatar{
-  min-height: auto !important;
-}
-.collection a.collection-item{
-  color: #b0bec5 !important;
-}
-.collection .collection-item {
-  background-color: transparent !important;
-  border-bottom: 1px solid #37474f !important;
-}
-
-mz-collection-item {
-  background-color: transparent !important;
-}
-mz-collection a {
-  padding: 0 !important;
-
-}
-
-mz-tab ul {
-  background-color: transparent !important;
-}
-mz-tab ul li a{
-  color: grey !important;
-}
-mz-radio-button-container p label{
-  margin-right: 50px !important;
-}
-
-.collapsible-header {
-  color: orange !important;
-  background: #212121 !important;
-  border-bottom: 1px solid #424242 !important;
-}
-.collapsible{
-  border: none !important;
-}
-.collapsible-body {
-  padding-left: 10px !important;
-  padding-right: 10px !important;
-  background-color: #424242!important;
-  border-bottom: 1px solid orange !important;
-}
-
 .brand-logo{
   font-size: medium !important;
 }
@@ -114,18 +38,6 @@ mz-radio-button-container p label{
 
 .text-bold {
   font-weight: bold !important;
-}
-
-thead {
-  border: none !important;
-}
-
-.owl-dt-timer-input {
-  font-weight: bold !important;
-  color: #212121 !important;
-  height: 23px !important;
-  padding: 0 !important;
-  margin-bottom: 1px !important;
 }
 
 .dark-theme {
@@ -207,68 +119,6 @@ thead {
 
 }
 
-.cal-month-view .cal-open-day-events {
-  border-bottom: solid 1px darkslategrey !important;
-  box-shadow: none !important;
-  background-color: #263238 !important;
-}
-
-.cal-month-view .cal-day-badge {
-  margin-top: 0 !important;
-  margin-left: 0 !important;
-  display: none !important;
-  min-width: 10px !important;
-  padding: 3px 7px !important;
-  font-size: 14px !important;
-  font-weight: 700 !important;
-  line-height: 1 !important;
-  text-align: center !important;
-  white-space: nowrap !important;
-  vertical-align: middle !important;
-  border-radius: 0 !important;
-}
-
-.cal-month-view .cal-day-number {
-  text-align: center !important;
-  font-weight: 400 !important;
-  opacity: 0.5 !important;
-  margin-top: 0 !important;
-  margin-right: 2px !important;
-  float: right !important;
-  margin-bottom: 10px !important;
-}
-
-.cal-month-view .cal-cell-top {
-  min-height: 0 !important;
-}
-
-.cal-month-view .cal-events {
-  flex: 0 !important;
-  align-items: flex-end !important;
-  margin: 1px !important;
-  line-height: 10px !important;
-  display: flex !important;
-  flex-wrap: wrap !important;
-}
-
-.cal-month-view .cal-event {
-  width: 8px !important;
-  height: 8px !important;
-  border-radius: 25% !important;
-  display: inline-block !important;
-  margin: 2px !important;
-}
-
-mwl-calendar-month-cell,
-mwl-calendar-day-view-hour-segment,
-mwl-calendar-week-view-hour-segment {
-  touch-action: auto !important;
-}
-
-.grecaptcha-badge {
-  display: none !important;
-}
-
 ::-webkit-scrollbar {
   width: 8px !important;
 }
@@ -285,9 +135,18 @@ mwl-calendar-week-view-hour-segment {
   background: #0d47a1 !important;
 }
 
-.navbar-fixed-bottom {
-  z-index: 99 !important;
-  width: 100% !important;
-  position: fixed !important;
-  bottom: 0 !important;
+
+///////////////
+.bar {
+  fill: steelblue;
 }
+.bar:hover {
+  fill: red;
+}
+.axis-title {
+  font-size: 12px;
+  fill: none;
+  stroke: white;
+  stroke-width: 0.5px;
+}
+
