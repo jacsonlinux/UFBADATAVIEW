@@ -6,6 +6,7 @@ import {AngularFireStorage} from '@angular/fire/storage';
 import {finalize} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {AuthenticationService} from '../../authentication/authentication.service';
+import { svg } from 'd3';
 
 @Component({
   selector: 'app-test',
@@ -14,8 +15,8 @@ import {AuthenticationService} from '../../authentication/authentication.service
 })
 export class TestComponent implements OnInit {
 
-  uploadPercent: Observable<number>;
-  downloadURL: Observable<string>;
+  // uploadPercent: Observable<number>;
+  // downloadURL: Observable<string>;
   uid: string;
 
   constructor(
@@ -137,16 +138,29 @@ export class TestComponent implements OnInit {
       });
   }*/
 
-  uploadFile(event) {
-    const file = event.target.files[0];
-    // console.log(event.target.);
+  // https://gist.githubusercontent.com/jacsonlinux/da7cf481a61b93d6482b5ada7a508691/raw/bf8d27362d0636ac63c1513233cac56787a08916/iris.csv
+
+
+  coord() {
+
+    d3.csv('https://gist.githubusercontent.com/jacsonlinux/da7cf4' +
+      '81a61b93d6482b5ada7a508691/raw/bf8d27362d0636' +
+      'ac63c1513233cac56787a08916/iris.csv')
+      .then(data => {
+
+        const keys = data.columns.slice(1);
+
+        console.log(keys);
+
+      }).catch();
+
+
   }
 
-  ngOnInit() {
-
-   const x  = d3.csv('iris.csv').then(res => res);
 
 
-  }
+
+
+  ngOnInit() { this.coord();  }
 
 }
