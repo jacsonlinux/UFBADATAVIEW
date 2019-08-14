@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AuthenticationService } from '../../authentication/authentication.service';
 
-import * as d3 from 'd3';
-
 import {STATISTICS} from '../shared';
 
+import * as d3 from 'd3';
 import * as d3Selection from 'd3-selection';
 import * as d3Scale from 'd3-scale';
 import * as d3Array from 'd3-array';
