@@ -38,9 +38,7 @@ export class Graph06Component implements OnInit {
     this.authenticationService.user.subscribe(res => this.uid = res.uid);
   }
 
-  ngOnInit() {
-    // this.getData();
-  }
+  ngOnInit() { this.scatterPlot2(); this.getData(); }
 
   scatterPlot2() {
     const margin = {top: 10, right: 30, bottom: 30, left: 60};
@@ -153,18 +151,12 @@ export class Graph06Component implements OnInit {
     const fileReader: any = new FileReader();
     fileReader.onload = (e) => {
       console.log(fileReader.result);
-
       const data = d3.csvParse(fileReader.result);
-
       console.log(data);
-
-
-
-
-
     };
     fileReader.readAsText(this.file);
   }
+
 }
 
 
