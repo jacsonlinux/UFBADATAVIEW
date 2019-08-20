@@ -10,6 +10,7 @@ import { Graph04Component } from './graph04/graph04.component';
 import {MzButtonModule, MzNavbarModule} from 'ngx-materialize';
 import { Graph05Component } from './graph05/graph05.component';
 import { Graph06Component } from './graph06/graph06.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { Graph06Component } from './graph06/graph06.component';
     CommonModule,
     GraphicsRoutingModule,
     MzButtonModule,
-    MzNavbarModule
+    MzNavbarModule,
+    HttpClientModule
   ]
 })
 export class GraphicsModule { }

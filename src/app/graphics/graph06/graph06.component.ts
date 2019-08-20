@@ -5,7 +5,12 @@ import * as d3Selection from 'd3-selection';
 import * as d3Scale from 'd3-scale';
 import * as d3Array from 'd3-array';
 import * as d3Axis from 'd3-axis';
-import {strict} from 'assert';
+import {HttpClient} from '@angular/common/http';
+import {AngularFireStorage} from '@angular/fire/storage';
+import {AuthenticationService} from '../../authentication/authentication.service';
+import {Observable} from 'rxjs';
+import {finalize} from 'rxjs/operators';
+import {GraphicsService} from '../graphics.service';
 
 @Component({
   selector: 'app-graph06',
@@ -14,11 +19,26 @@ import {strict} from 'assert';
 })
 export class Graph06Component implements OnInit {
 
-  specie;
+  uploadPercent: Observable<number>;
+  downloadURL: Observable<string>;
+  dimensions: Array<string>;
 
-  constructor() { }
+  uid: string;
 
-  ngOnInit() { this.scatterPlot2(); }
+  specie: string;
+
+  file: any;
+
+  constructor(
+    private http: HttpClient,
+    private graphicsService: GraphicsService,
+    private angularFireStorage: AngularFireStorage,
+    private authenticationService: AuthenticationService
+  ) {
+    this.authenticationService.user.subscribe(res => this.uid = res.uid);
+  }
+
+  ngOnInit() { this.scatterPlot2(); this.getData(); }
 
   scatterPlot2() {
     const margin = {top: 10, right: 30, bottom: 30, left: 60};
@@ -33,7 +53,7 @@ export class Graph06Component implements OnInit {
       .attr('transform',
         'translate(' + margin.left + ',' + margin.top + ')');
 
-    d3.csv('https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/iris.csv')
+    d3.csv('assets/iris.csv')
       .then(data => {
 
         const x: any = d3
@@ -98,15 +118,46 @@ export class Graph06Component implements OnInit {
           .on('mouseleave', doNotHighlight );
       });
   }
+
+  uploadFile(event) {
+    const file = event.target.files[0];
+    // console.log(file);
+    const filePath = `/${this.uid}/${file.name}`;
+    const fileRef = this.angularFireStorage.ref(filePath);
+    const task = this.angularFireStorage.upload(filePath, file);
+    this.uploadPercent = task.percentageChanges();
+    task.snapshotChanges()
+      .pipe( finalize(() => this.downloadURL = fileRef.getDownloadURL() ) )
+      .subscribe();
+  }
+
+  getData() {
+    this.http.get('https://gist.gith' +
+      'ubusercontent.com/jacsonlinux/da7cf481a' +
+      '61b93d6482b5ada7a508691/raw/510da017a4ca7c5' +
+      '1bc27b0a98e048d2700de4c5b/iris.csv', {responseType: 'text'})
+      .subscribe(data => {
+        // console.log(data);
+      });
+  }
+
+  fileChanged(event) {
+    console.log(event);
+    this.file = event.target.files[0];
+    this.uploadDocument(this.file);
+  }
+
+  uploadDocument(file) {
+    const fileReader = new FileReader();
+    fileReader.onload = (e) => {
+      console.log(fileReader.result);
+    };
+    fileReader.readAsText(this.file);
+  }
+
+
+
 }
-
-
-
-
-
-
-
-
 
 
 
