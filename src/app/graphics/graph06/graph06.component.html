@@ -12,7 +12,6 @@
 <div class="center" id="jacsonlinux"></div>
 <br/>
 <br/>
-
 <!--<input type="file" (change)="uploadFile($event)" />
 <br/>
 <br/>
@@ -22,7 +21,23 @@
 <br/>
 
 <a [href]="downloadURL | async">{{ downloadURL | async }}</a>-->
+<!--
+<input type="file" name="file" id="file" class="inputfile" (change)="fileChanged($event)"/>
+<label for="file">Choose a file</label>
+-->
 
-<div class="grey darken-4">
-  <input type='file' (change)="fileChanged($event)">
+<div class = "row">
+  <form class = "col s12">
+    <label>File Input</label>
+    <div class = "file-field input-field">
+      <div class = "btn">
+        <span>Browse</span>
+        <input type = "file" (change)="fileChanged($event)" />
+      </div>
+      <div class = "file-path-wrapper">
+        <input class = "file-path validate" type = "text"
+               placeholder = "Upload file" />
+      </div>
+    </div>
+  </form>
 </div>

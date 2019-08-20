@@ -38,7 +38,9 @@ export class Graph06Component implements OnInit {
     this.authenticationService.user.subscribe(res => this.uid = res.uid);
   }
 
-  ngOnInit() { this.scatterPlot2(); this.getData(); }
+  ngOnInit() {
+    // this.getData();
+  }
 
   scatterPlot2() {
     const margin = {top: 10, right: 30, bottom: 30, left: 60};
@@ -55,6 +57,7 @@ export class Graph06Component implements OnInit {
 
     d3.csv('assets/iris.csv')
       .then(data => {
+        console.log(data);
 
         const x: any = d3
           .scaleLinear()
@@ -142,21 +145,26 @@ export class Graph06Component implements OnInit {
   }
 
   fileChanged(event) {
-    console.log(event);
     this.file = event.target.files[0];
     this.uploadDocument(this.file);
   }
 
   uploadDocument(file) {
-    const fileReader = new FileReader();
+    const fileReader: any = new FileReader();
     fileReader.onload = (e) => {
       console.log(fileReader.result);
+
+      const data = d3.csvParse(fileReader.result);
+
+      console.log(data);
+
+
+
+
+
     };
     fileReader.readAsText(this.file);
   }
-
-
-
 }
 
 
