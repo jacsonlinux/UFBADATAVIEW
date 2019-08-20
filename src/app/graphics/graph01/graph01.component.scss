@@ -1,0 +1,18 @@
+pre {
+  display:none;
+}
+svg .foreground path {
+  fill: none;
+  stroke: #F15A29;
+  stroke-opacity: .7;
+}
+.axis path, .axis line {
+  fill: none;
+  stroke:black;
+  shape-rendering: crispEdges;
+}
+.brush .extent {
+  fill-opacity: .1;
+  stroke: #fff;
+  shape-rendering: crispEdges;
+}

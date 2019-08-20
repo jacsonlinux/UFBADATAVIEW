@@ -135,7 +135,9 @@
   background: #0d47a1 !important;
 }
 
-
+g text {
+  fill: aliceblue !important;
+}
 ///////////////
 .bar {
   fill: steelblue;
@@ -150,3 +152,9 @@
   stroke-width: 0.5px;
 }
 
+.axis {
+  opacity: 0.4;
+}
+.axis:hover {
+  opacity: 1;
+}

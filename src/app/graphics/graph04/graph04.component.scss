@@ -1,0 +1,23 @@
+g text {
+  fill: aliceblue !important;
+}
+///////////////
+.bar {
+  fill: steelblue;
+}
+.bar:hover {
+  fill: red;
+}
+.axis-title {
+  font-size: 12px;
+  fill: none;
+  stroke: white;
+  stroke-width: 0.5px;
+}
+
+.axis {
+  opacity: 0.4;
+}
+.axis:hover {
+  opacity: 1;
+}
