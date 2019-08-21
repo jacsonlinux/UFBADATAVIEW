@@ -135,9 +135,7 @@
   background: #0d47a1 !important;
 }
 
-g text {
-  fill: aliceblue !important;
-}
+
 ///////////////
 .bar {
   fill: steelblue;
@@ -152,9 +150,13 @@ g text {
   stroke-width: 0.5px;
 }
 
-.axis {
-  opacity: 0.4;
+/////////////////
+.axis--x path {
+  //display: none;
 }
-.axis:hover {
-  opacity: 1;
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
 }
