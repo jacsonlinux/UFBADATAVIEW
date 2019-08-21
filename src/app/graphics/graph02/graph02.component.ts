@@ -337,12 +337,12 @@ import * as d3Shape from 'd3-shape';
 import { TEMPERATURES } from './data';
 
 @Component({
-  selector: 'app-test',
+  selector: 'app-graph02',
   encapsulation: ViewEncapsulation.None,
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.scss']
+  templateUrl: './graph02.component.html',
+  styleUrls: ['./graph02.component.scss']
 })
-export class TestComponent implements OnInit {
+export class Graph02Component implements OnInit {
 
   // uploadPercent: Observable<number>;
   // downloadURL: Observable<string>;

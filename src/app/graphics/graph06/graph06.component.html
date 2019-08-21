@@ -10,18 +10,7 @@
   {{specie}}
 </div>
 <div class="center" id="jacsonlinux"></div>
-<br/>
-<br/>
 
-<input type="file" (change)="uploadFile($event)" />
-<br/>
-<br/>
-
-<progress max="100" [value]="(uploadPercent | async)"></progress>
-<br/>
-<br/>
-
-<a [href]="downloadURL | async">{{ downloadURL | async }}</a>
 
 <!--
 <input type="file" name="file" id="file" class="inputfile" (change)="fileChanged($event)"/>
@@ -45,3 +34,17 @@
     </div>
   </form>
 </div>
+
+<hr>
+<br/>
+<br/>
+
+<input type="file" (change)="uploadFile($event)" />
+<br/>
+<br/>
+
+<progress max="100" [value]="(uploadPercent | async)"></progress>
+<br/>
+<br/>
+
+<a [href]="downloadURL | async">{{ downloadURL | async }}</a>
