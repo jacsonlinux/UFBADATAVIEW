@@ -1,6 +1,6 @@
 <div
   class="blue-grey darken-4 right"
-  style=" border-radius: 25px;
+  style=" border-radius: 15px;
    margin-top: 10px;
     height: 50px;
      width: 200px;
@@ -13,7 +13,7 @@
 <br/>
 <br/>
 
-<!--<input type="file" (change)="uploadFile($event)" />
+<input type="file" (change)="uploadFile($event)" />
 <br/>
 <br/>
 
@@ -21,7 +21,7 @@
 <br/>
 <br/>
 
-<a [href]="downloadURL | async">{{ downloadURL | async }}</a>-->
+<a [href]="downloadURL | async">{{ downloadURL | async }}</a>
 
 <!--
 <input type="file" name="file" id="file" class="inputfile" (change)="fileChanged($event)"/>
@@ -37,8 +37,10 @@
         <input type = "file" (change)="fileChanged($event)" />
       </div>
       <div class = "file-path-wrapper">
-        <input class = "file-path validate" type = "text"
-               placeholder = "Upload file" />
+        <input
+          class = "file-path validate"
+          type = "text"
+          placeholder = "Upload file" />
       </div>
     </div>
   </form>
