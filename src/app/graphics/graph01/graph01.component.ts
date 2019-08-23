@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import * as d3 from 'd3';
+import {toNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_version';
 
 @Component({
   selector: 'app-graph01',
@@ -9,16 +10,19 @@ import * as d3 from 'd3';
 })
 export class Graph01Component implements OnInit {
 
+  file;
+  value;
+
   constructor(
   ) {
     console.log('Graph01Componet');
   }
 
-  ngOnInit() {
-    this.jsAugusto();
-  }
+  ngOnInit() { }
 
-  jsAugusto() {
+
+  jsAugusto(data) {
+
     const height = 500;
     const width = 500;
     const gap = 10;
@@ -31,12 +35,13 @@ export class Graph01Component implements OnInit {
       .attr('width', width * 2 + gap);
 
     // first svg
-    const svg1 = d3.select('svg#mainsvg')
+    const svg1: any = d3.select('svg#mainsvg')
       .append('svg')
       .attr('id', 'svg1')
       .attr('height', height)
       .attr('width', width);
-    const svg2 = d3.select('svg#mainsvg')
+
+    const svg2: any = d3.select('svg#mainsvg')
       .append('g') // group to move svg sideways
       .attr('transform', 'translate(' + (width + gap) + ')')
       .append('svg')
@@ -60,37 +65,35 @@ export class Graph01Component implements OnInit {
       .attr('stroke-width', 2);
 
     // simulate some data
-    const nPts = 1000;
+    /*const nPts = 1000;
     const index = d3.range(nPts);
-    const data = index.map(i => {
-      const x = Math.random() * (width - 10) + 5;
-      const y = x * 0.3 + Math.random() * height / 2;
-      const z = x * 0.4 + Math.random() * height / 2;
-      return { x, y, z };
+    data = index.map(i => {
+      const x = Math.random() * width;
+      const y = Math.random() * height;
+      return { x, y };
     });
 
-    console.log(data);
-
+    console.log(data);*/
 
     // plot y vs x in first plot
     svg1.selectAll('empty')
       .data(data)
       .enter()
       .append('circle')
-      .attr('cx', d => d.x)
-      .attr('cy', d => height - d . y + 10)
-      .attr('class', (d, i) => 'pt' + i)
+      .attr('cx', d => d.x * width)
+      .attr('cy', d => d.y * height)
+      .attr('id', (d, i) => 'pt' + i)
       .attr('r', 5)
       .attr('stroke', 'black')
       .attr('fill', 'slateblue')
       .on('mouseover', (d, i) => {
-        console.log(i);
-        d3.selectAll('circle.pt' + i)
+        this.value = `X: ${d.x} | Y: ${d.y} `;
+        d3.selectAll('circle#pt' + i)
           .attr('fill', 'Orchid')
           .attr('r', 10);
       })
       .on('mouseout', (d, i) => {
-        d3.selectAll('circle.pt' + i)
+        d3.selectAll('circle#pt' + i)
           .attr('fill', 'slateblue')
           .attr('r', 5);
       });
@@ -100,23 +103,37 @@ export class Graph01Component implements OnInit {
       .data(data)
       .enter()
       .append('circle')
-      .attr('cx', d => d.x)
-      .attr('cy', d => height - d . z + 10)
-      .attr('class', (d, i) => 'pt' + i)
+      .attr('cx', d => d.x * width)
+      .attr('cy', d => d.y * height)
+      .attr('id', (d, i) => 'pt' + i)
       .attr('r', 5)
       .attr('stroke', 'black')
       .attr('fill', 'slateblue')
       .on('mouseover', (d, i) => {
-        console.log(i);
-        d3.selectAll('circle.pt' + i)
+        this.value = `X: ${d.x} | Y: ${d.y} `;
+        d3.selectAll('circle#pt' + i)
           .attr('fill', 'Orchid')
           .attr('r', 10);
       })
       .on('mouseout', (d, i) => {
-        d3.selectAll('circle.pt' + i)
+        d3.selectAll('circle#pt' + i)
           .attr('fill', 'slateblue')
           .attr('r', 5);
       });
+  }
+
+  fileChanged(event) {
+    this.file = event.target.files[0];
+    this.uploadDocument();
+  }
+
+  uploadDocument() {
+    const fileReader: any = new FileReader();
+    fileReader.onload = (e) => {
+      const data = d3.csvParse(fileReader.result);
+      this.jsAugusto(data);
+    };
+    fileReader.readAsText(this.file);
   }
 
 }

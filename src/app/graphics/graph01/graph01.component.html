@@ -1,7 +1,20 @@
+<h4>{{value}}</h4>
 <div id="jacsonlinux" class="center" style="margin-top: 20px"></div>
-<!--<input type="file" (change)="uploadFile($event)" />-->
-<!--<progress max="100" [value]="(uploadPercent | async)"></progress>-->
-<!--<a [href]="downloadURL | async">{{ downloadURL | async }}</a>-->
-
 <br/>
-<!--<svg width="960" height="500"></svg>-->
+<div class = "row">
+  <form class = "col s12">
+    <label>File Input</label>
+    <div class = "file-field input-field">
+      <div class = "btn">
+        <span>Browse</span>
+        <input type = "file" (change)="fileChanged($event)" />
+      </div>
+      <div class = "file-path-wrapper">
+        <input
+          class = "file-path validate"
+          type = "text"
+          placeholder = "Upload file" />
+      </div>
+    </div>
+  </form>
+</div>
