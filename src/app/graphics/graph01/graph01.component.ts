@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import * as d3 from 'd3';
-import {toNumbers} from '@angular/compiler-cli/src/diagnostics/typescript_version';
 
 @Component({
   selector: 'app-graph01',
@@ -20,10 +19,9 @@ export class Graph01Component implements OnInit {
 
   ngOnInit() { }
 
-
   jsAugusto(data) {
 
-    const height = 500;
+    const height = 400;
     const width = 500;
     const gap = 10;
 
@@ -63,17 +61,6 @@ export class Graph01Component implements OnInit {
       .attr('stroke', 'black')
       .attr('fill', '#ccc')
       .attr('stroke-width', 2);
-
-    // simulate some data
-    /*const nPts = 1000;
-    const index = d3.range(nPts);
-    data = index.map(i => {
-      const x = Math.random() * width;
-      const y = Math.random() * height;
-      return { x, y };
-    });
-
-    console.log(data);*/
 
     // plot y vs x in first plot
     svg1.selectAll('empty')
