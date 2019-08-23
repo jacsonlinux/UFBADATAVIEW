@@ -10,7 +10,7 @@ import * as d3 from 'd3';
 export class Graph01Component implements OnInit {
 
   file;
-  value;
+  displayValue;
 
   constructor(
   ) {
@@ -74,7 +74,7 @@ export class Graph01Component implements OnInit {
       .attr('stroke', 'black')
       .attr('fill', 'slateblue')
       .on('mouseover', (d, i) => {
-        this.value = `X: ${d.x} | Y: ${d.y} `;
+        this.displayValue = `X: ${d.x} | Y: ${d.y}`;
         d3.selectAll('circle#pt' + i)
           .attr('fill', 'Orchid')
           .attr('r', 10);
@@ -97,7 +97,7 @@ export class Graph01Component implements OnInit {
       .attr('stroke', 'black')
       .attr('fill', 'slateblue')
       .on('mouseover', (d, i) => {
-        this.value = `X: ${d.x} | Y: ${d.y} `;
+        this.displayValue = `X: ${d.x} | Y: ${d.y} `;
         d3.selectAll('circle#pt' + i)
           .attr('fill', 'Orchid')
           .attr('r', 10);
