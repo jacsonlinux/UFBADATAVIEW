@@ -1,33 +1,29 @@
 <div class="container" *ngIf="showFormLogin; else showSpinner">
-  <header class="" style="width: 100%; height: 100px; margin-top: 50px" >
-    <div class="left">
-      <img class="left" src="../../../assets/icons/icon-72x72.png">
+  <div id="loginContent">
+    <div class="center">
+      <img src="../../../assets/icons/icon-72x72.png">
+      <h3>Multi<span class="grey-text">Vis</span></h3>
     </div>
-    <div class="right" style="text-align: right">
-      <div class="" style="margin-top: 5px; margin-right: 3px; font-size: 10px">Universidade Federal da Bahia</div>
-      <div class="" style="line-height: 1;  margin-right: 3px;">Campus Ondina</div>
-      <div class="grey-text" style="margin-top: 21px;  margin-right: 3px; font-size: 11px; text-transform: uppercase">Multidimensional Data Display</div>
-    </div>
-  </header>
-  <form [formGroup]="logInForm" novalidate>
-    <mz-input-container>
-      <button
-        mz-button
-        [large]="true"
-        [float]="false"
-        [flat]="false"
-        class="blue-grey darken-3"
-        (click)="logInGoogle()"
-      ><i mz-icon-mdi [icon]="'google'" [align]="'left'"></i>Log in with Google</button>
-    </mz-input-container>
-    <re-captcha
-      theme="dark"
-      #captchaRef="reCaptcha"
-      siteKey="6Ldpu2sUAAAAAL9T4QMtW9km-QBwHKiE5ZpTc2q8"
-      size="invisible"
-      (resolved)="$event && onSubmit($event)"
-    ></re-captcha>
-  </form>
+    <form [formGroup]="logInForm" novalidate>
+      <mz-input-container>
+        <button
+          mz-button
+          [large]="true"
+          [float]="false"
+          [flat]="false"
+          class="blue-grey darken-3"
+          (click)="logInGoogle()"
+        ><i mz-icon-mdi [icon]="'google'" [align]="'left'"></i>Log in with Google</button>
+      </mz-input-container>
+      <re-captcha
+        theme="dark"
+        #captchaRef="reCaptcha"
+        siteKey="6LcEB7UUAAAAAOSncdvYL58AYP_nnLa6aI7_8ybY"
+        size="invisible"
+        (resolved)="$event && onSubmit($event)"
+      ></re-captcha>
+    </form>
+  </div>
 </div>
 <ng-template #showSpinner>
   <div class="center-jack-container">
@@ -37,3 +33,8 @@
     </mz-spinner>
   </div>
 </ng-template>
+
+
+
+
+

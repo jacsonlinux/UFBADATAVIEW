@@ -3,11 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { GraphicsComponent } from './graphics.component';
 import { Graph01Component } from './graph01/graph01.component';
-import { Graph02Component } from './graph02/graph02.component';
-import { Graph03Component } from './graph03/graph03.component';
-import { Graph04Component } from './graph04/graph04.component';
-import {Graph05Component} from './graph05/graph05.component';
-import {Graph06Component} from './graph06/graph06.component';
+// import { Graph02Component } from './graph02/graph02.component';
+// import { Graph03Component } from './graph03/graph03.component';
+// import { Graph04Component } from './graph04/graph04.component';
+// import {Graph05Component} from './graph05/graph05.component';
+// import {Graph06Component} from './graph06/graph06.component';
 
 const GRAPHICS_ROUTES: Routes = [
   {
@@ -16,7 +16,7 @@ const GRAPHICS_ROUTES: Routes = [
       { path: 'graph01',
         data: { title: 'GRAPH 01' },
         component: Graph01Component,
-      },
+      }/*,
       { path: 'graph02',
         data: { title: 'GRAPH 02' },
         component: Graph02Component,
@@ -36,7 +36,7 @@ const GRAPHICS_ROUTES: Routes = [
       { path: 'graph06',
         data: { title: 'GRAPH 06' },
         component: Graph06Component,
-      }
+      }*/
     ]
   }
 ];
